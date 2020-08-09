@@ -176,15 +176,12 @@ supported_operands = [
     ast.Subscript,
     ast.Call,
     ast.BinOp,
-    ast.IfExp
+    ast.IfExp,
 ]
 
 
 def transform_binop(node):
-    if isinstance(
-        node.right,
-        tuple(supported_operands),
-    ):
+    if isinstance(node.right, tuple(supported_operands),):
         return transform_generic(node)
 
     elif isinstance(node.right, ast.Tuple):

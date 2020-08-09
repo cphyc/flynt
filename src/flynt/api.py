@@ -90,9 +90,12 @@ def fstringify_files(files, multiline, len_limit, transform_concat):
     total_expressions = 0
     start_time = time.time()
     for path in files:
-        changed, count_expressions, charcount_original, charcount_new = _fstringify_file(
-            path, multiline, len_limit, transform_concat
-        )
+        (
+            changed,
+            count_expressions,
+            charcount_original,
+            charcount_new,
+        ) = _fstringify_file(path, multiline, len_limit, transform_concat)
         if changed:
             changed_files += 1
             total_expressions += count_expressions
